@@ -1,13 +1,13 @@
 // Firebase Configuration
 // Replace with your actual Firebase config
 const firebaseConfig = {
-    apiKey: "your-api-key",
-    authDomain: "your-project.firebaseapp.com",
-    databaseURL: "https://your-project-default-rtdb.firebaseio.com/",
-    projectId: "your-project-id",
-    storageBucket: "your-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "your-app-id"
+    apiKey: "AIzaSyCt9jIv2UawIHuFpXyySwfMmrnqxK_BGa4",
+    authDomain: "quiz-cursor.firebaseapp.com",
+    databaseURL: "https://quiz-cursor-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "quiz-cursor",
+    storageBucket: "quiz-cursor.firebasestorage.app",
+    messagingSenderId: "327578273208",
+    appId: "1:327578273208:web:8d713fb2e4417521c83b4d"
 };
 
 // Initialize Firebase
