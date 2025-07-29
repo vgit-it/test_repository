@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vote Now!</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+    h1 { font-size: 2rem; margin-bottom: 30px; }
+    .options { display: flex; flex-direction: column; gap: 15px; }
+    button {
+      background: #4cafef; border: none; color: #fff;
+      font-size: 1.5rem; padding: 20px 40px;
+      border-radius: 10px; cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    button:hover { transform: scale(1.05); background: #1e90ff; }
+  </style>
+</head>
+<body>
+  <h1>Which design tool do you love most?</h1>
+  <div class="options">
+    <button onclick="vote('Figma')">Figma</button>
+    <button onclick="vote('Sketch')">Sketch</button>
+    <button onclick="vote('XD')">Adobe XD</button>
+    <button onclick="vote('Canva')">Canva</button>
+  </div>
+
+  <script type="module">
+    // 1. Import Firebase libraries
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+    // 2. Paste your Firebase config here
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrlqToml9ZFFNZ0zZ7vXes-uR2i66iEcM",
+      authDomain: "testhost-bf3fe.firebaseapp.com",
+      projectId: "testhost-bf3fe",
+      storageBucket: "testhost-bf3fe.firebasestorage.app",
+      messagingSenderId: "1090261600630",
+      appId: "1:1090261600630:web:44017d7a1b0fddd3a99257"
+    };
+
+    // 3. Connect to Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. Function to submit a vote
+    window.vote = async function(choice) {
+  const ref = doc(db, "polls", "currentPoll");
+  await updateDoc(ref, { [choice]: increment(1) });
+  alert("Vote submitted!");
+};
+
+  </script>
+</body>
+</html>
